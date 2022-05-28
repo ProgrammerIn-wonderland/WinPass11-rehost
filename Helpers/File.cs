@@ -3,9 +3,9 @@ using System.Net;
 
 namespace WinPass11.Helpers
 {
-    class Files
+    class File
     {
-        public static bool IsFileLocked(FileInfo file)
+        public static bool IsLocked(FileInfo file)
         {
             FileStream? stream = null;
 
@@ -21,13 +21,15 @@ namespace WinPass11.Helpers
             finally
             {
                 if (stream != null)
+                {
                     stream.Close();
+                }
             }
 
             return false;
         }
 
-        public static void ReplaceFile(string replacement, string path)
+        public static void Replace(string replacement, string path)
         {
             try
             {
@@ -40,12 +42,12 @@ namespace WinPass11.Helpers
             }
         }
 
-        public static void WaitForFileExist(string path, string? replacement)
+        public static void WaitForExist(string path, string? replacement)
         {
             FileInfo file = new(path);
 
             int i = 0;
-            while (!File.Exists(path) && i < 60)
+            while (!System.IO.File.Exists(path) && i < 60)
             {
                 if (i == 60)
                 {
@@ -59,7 +61,7 @@ namespace WinPass11.Helpers
             }
             Thread.Sleep(5000);
 
-            while (IsFileLocked(file))
+            while (IsLocked(file))
             {
                 Process[] processes = Process.GetProcessesByName("SetupHost.exe");
                 foreach (Process process in processes)
@@ -68,11 +70,11 @@ namespace WinPass11.Helpers
                 }
             }
 
-            if (File.Exists(path))
+            if (System.IO.File.Exists(path))
             {
                 try
                 {
-                    File.Delete(path);
+                    System.IO.File.Delete(path);
                 }
                 catch
                 {
@@ -82,7 +84,7 @@ namespace WinPass11.Helpers
 
             if (!string.IsNullOrEmpty(replacement))
             {
-                ReplaceFile(replacement, path);
+                Replace(replacement, path);
             }
         }
     }

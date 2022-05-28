@@ -3,18 +3,16 @@
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net6.0-windows</TargetFramework>
+		<SelfContained>true</SelfContained>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<ApplicationIcon>AppIcon.ico</ApplicationIcon>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<Content Include="AppIcon.ico" />
-	</ItemGroup>
 
 </Project>

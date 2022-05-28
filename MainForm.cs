@@ -1,5 +1,6 @@
 using Microsoft.Win32;
 using System.Diagnostics;
+using File = WinPass11.Helpers.File;
 
 namespace WinPass11
 {
@@ -15,14 +16,18 @@ namespace WinPass11
         private void MainForm_Shown(object sender, EventArgs e)
         {
             if (Directory.Exists(tempDir))
+            {
                 Directory.Delete(tempDir, true);
+            }
             Directory.CreateDirectory(tempDir);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Directory.Exists(tempDir))
+            {
                 Directory.Delete(tempDir, true);
+            }
         }
 
         private void cmbChannel_SelectionChangeComitted(object sender, EventArgs e)
@@ -37,9 +42,12 @@ namespace WinPass11
         {
             btnInstall.Enabled = false;
             cmbChannel.Enabled = false;
+
             DialogResult result = MessageBox.Show("Are you sure you want to continue? This action cannot be undone.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
+            {
                 Application.Exit();
+            };
 
             string channel = cmbChannel.SelectedItem.ToString()!;
 
@@ -70,7 +78,7 @@ namespace WinPass11
             string downloadDir = @$"{Path.GetPathRoot(Environment.SystemDirectory)}\$WINDOWS.~BT\Sources\AppraiserRes.dll";
             string replacementUri = "https://github.com/ArkaneDev/files/raw/main/appraiserres.dll";
 
-            Thread thread = new Thread(() => Helpers.Files.WaitForFileExist(downloadDir, replacementUri));
+            Thread thread = new Thread(() => File.WaitForExist(downloadDir, replacementUri));
             thread.Start();
             thread.Join();
 
