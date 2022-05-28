@@ -75,6 +75,7 @@ namespace WinPass11
             thread.Join();
 
             MessageBox.Show("Tasks completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Application.Exit();
         }
     }
 }
