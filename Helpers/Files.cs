@@ -47,6 +47,12 @@ namespace WinPass11.Helpers
             int i = 0;
             while (!File.Exists(path) && i < 60)
             {
+                if (i == 60)
+                {
+                    MessageBox.Show($"The application has timed out.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+
                 Debug.WriteLine($"Sleeping, file not yet found: {path}");
                 Thread.Sleep(1000);
                 i++;
