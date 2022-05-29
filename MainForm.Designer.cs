@@ -24,18 +24,20 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnInstall = new System.Windows.Forms.Button();
             this.cmbChannel = new System.Windows.Forms.ComboBox();
-            this.pnlBackground = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlBackground.SuspendLayout();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnInstall
             // 
             this.btnInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInstall.Enabled = false;
-            this.btnInstall.Location = new System.Drawing.Point(197, 76);
+            this.btnInstall.Location = new System.Drawing.Point(197, 113);
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.Size = new System.Drawing.Size(75, 23);
             this.btnInstall.TabIndex = 0;
@@ -50,44 +52,44 @@
             this.cmbChannel.FormattingEnabled = true;
             this.cmbChannel.Items.AddRange(new object[] {
             "Dev",
-            "Beta"});
-            this.cmbChannel.Location = new System.Drawing.Point(12, 76);
+            "Beta",
+            "Release"});
+            this.cmbChannel.Location = new System.Drawing.Point(12, 113);
             this.cmbChannel.Name = "cmbChannel";
             this.cmbChannel.Size = new System.Drawing.Size(121, 23);
             this.cmbChannel.TabIndex = 1;
             this.cmbChannel.SelectionChangeCommitted += new System.EventHandler(this.cmbChannel_SelectionChangeComitted);
             // 
-            // pnlBackground
+            // openFileDialog1
             // 
-            this.pnlBackground.BackColor = System.Drawing.Color.White;
-            this.pnlBackground.Controls.Add(this.lblTitle);
-            this.pnlBackground.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBackground.Location = new System.Drawing.Point(0, 0);
-            this.pnlBackground.Name = "pnlBackground";
-            this.pnlBackground.Size = new System.Drawing.Size(284, 70);
-            this.pnlBackground.TabIndex = 2;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // lblTitle
+            // progressBar1
             // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Fira Code SemiBold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(62, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(163, 43);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "WinPass11";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.progressBar1.Location = new System.Drawing.Point(12, 76);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(260, 23);
+            this.progressBar1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(290, 149);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MainForm
             // 
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(284, 111);
+            this.ClientSize = new System.Drawing.Size(284, 148);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.cmbChannel);
             this.Controls.Add(this.btnInstall);
-            this.Controls.Add(this.pnlBackground);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -95,8 +97,7 @@
             this.Text = "WinPass11";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
-            this.pnlBackground.ResumeLayout(false);
-            this.pnlBackground.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,7 +106,8 @@
 
         private Button btnInstall;
         private ComboBox cmbChannel;
-        private Panel pnlBackground;
-        private Label lblTitle;
+        private OpenFileDialog openFileDialog1;
+        private ProgressBar progressBar1;
+        private PictureBox pictureBox1;
     }
 }
