@@ -74,7 +74,7 @@ namespace WinPass11
             // MainForm
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(149)))), ((int)(((byte)(255)))));
-            this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.WinPass11;
+            this.BackgroundImage = global::WinPass11.Properties.Resources.WinPass11;
             this.ClientSize = new System.Drawing.Size(284, 148);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.cmbChannel);
