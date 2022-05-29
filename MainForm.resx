@@ -1,4 +1,64 @@
-﻿<root>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -60,4 +120,81 @@
   <metadata name="fileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAAAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANV5AADVeQAE1XkAG9V5AB/VeQAf1XkAH9V5
+        AB/VeQAf1XkAH9V5AB/VeQAf1XkAH9V5ACDVeQAS1XkAEtV5ACDVeQAf1XkAH9V5AB/VeQAf1XkAH9V5
+        AB/VeQAf1XkAH9V5AB/VeQAb1XgABNV4AAAAAAAAAAAAAAAAAAAAAAAA1XkAANV5ABvVeQDF1XkA4tV5
+        AODVeQDg1XkA4NV5AODVeQDg1XkA4NV5AODVeQDg1XkA5NV5AIPVeQCD1XkA5NV5AODVeQDg1XkA4NV5
+        AODVeQDg1XkA4NV5AODVeQDg1XkA4tV5AMXVeQAb1XkAAAAAAAAAAAAAAAAAAAAAAADVegAA1XoAH9V6
+        AODVegD/1XoA/9V6AP/WegD/1XoA/9V6AP/VegD/1noA/9Z6AP/WegD/1XoAldV6AJXVegD/1noA/9Z6
+        AP/WegD/1noA/9Z6AP/WegD/1noA/9Z6AP/WegD/1XoA4NV6AB/VegAAAAAAAAAAAAAAAAAAAAAAANV6
+        AADVegAf1XoA4NZ6AP/VegD/1XoA/9V6AP/VegD/1XoA/9V6AP/VegD/1XoA/9V5AP/VeQCV1XkAldV5
+        AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5AP/VeQDg1XkAH9V5AAAAAAAAAAAAAAAA
+        AAAAAAAA1noAANZ6AB/WegDg1noA/9Z6AP/WegD/1noA/9Z6AP/WegD/1noA/9Z6AP/UeQD/1HkA/9Z6
+        AJXVegCV1noA/9Z6AP/WegD/1noA/9Z6AP/WegD/1XoA/9V6AP/VegD/1XoA/9V6AODVegAf1XoAAAAA
+        AAAAAAAAAAAAAAAAAADVegAA1XoAH9V6AODVegD/1XoA/9Z6AP/WegD/1noA/9Z6AP/WegD/0ngA/812
+        B//Ndgf/0HcAldZ6AJXWegD/1noA/9Z6AP/WegD/1noA/9Z6AP/WegD/1noA/9Z6AP/WegD/1noA4NV6
+        AB/VegAAAAAAAAAAAAAAAAAAAAAAANV5AADVeQAf1XkA4NV5AP/VeQD/1XkA/9V6AP/VegD/1noA/9J4
+        AP/QeAv/4IUk/+CGJf/MeRSe0XcAmNZ6AP/WegD/1noA/9Z6AP/VegD/1XoA/9V6AP/VegD/1XoA/9V6
+        AP/VegDg1XoAH9V6AAAAAAAAAAAAAAAAAAAAAAAA1XkAANV5AB/VeQDg1XkA/9V5AP/VeQD/1XkA/9V6
+        AP/SdwD/z3cL/+CFJP/niyz/6I4u/+SNL+LPehDS0ncA/9Z6AP/VegD/1XoA/9V6AP/VegD/1XoA/9Z6
+        AP/WegD/1XoA/9V6AODVegAf1XoAAAAAAAAAAAAAAAAAAAAAAADVegAA1XoAH9V6AODVeQD/1XkA/9V5
+        AP/VeQD/0ngA/893C//ghST/54ss/+eNLf/okC//6ZMy/+OPLf/Qew7/0XcA/9V6AP/VegD/1XkA/9V6
+        AP/VegD/1XoA/9V6AP/VegD/1XoA4NV6AB/VegAAAAAAAAAAAAAAAAAAAAAAANV6AADVegAf1XkA4NV5
+        AP/VegD/1XoA/9N4AP/FbAb/1Xgf/+iMLP/nji3/6JAv/+mSMf/plTP/6pc2/+STMP/QfRD/0XcA/9V5
+        AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5AP/VeQDg1XkAH9V5AAAAAAAAAAAAAAAAAAAAAAAA1XkAANV5
+        AB/VeQDg1XoA/9Z6AP/TeAD/xWwG/7xcFf/EYhv/3oMp/+iRMP/pkjH/6ZUz/+qXNf/rmTf/7Jw6/+WY
+        NP/RfhH/0XcA/9V5AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5AODVeQAf1XkAAAAAAAAAAAAAAAAAAAAA
+        AADVeQAA1XkAH9V5AODVeQD/0ngA/8VrBv+9XBX/vVoY/7xZGP/EYxz/4Ics/+qVNP/qlzX/65k3/+uc
+        Of/snjv/7aE+/+ecN//RfxL/0XcA/9V5AP/VeQD/1XkA/9V5AP/VeQD/1XkA4NV5AB/VeQAAAAAAAAAA
+        AAAAAAAAAAAAANZ6AADWegAS1XkAg9R5AJbDagjMvVwV/71aGP+9Whj/vVoY/7xZGP/FZB3/4Iov/+ua
+        OP/rnDn/7J47/+yhPf/toz//7qZC/+igOv/QghfSz3UAmNV5AJXVeQCV1XkAldV5AJbVeQCD1XkAEtV5
+        AAAAAAAAAAAAAAAAAAAAAAAA1XkAANV5ABLVeQCD1HgAl8FgEti9WRj/vVoY/71aGP+9Whj/vVoY/7xZ
+        GP/Iahn/5JMu/+yfPP/toT3/7aM//+6lQf/uqEP/76tG/+yqRuLQhyCeznUAldV5AJXVeQCV1XkAltV5
+        AIPVeQAS1XkAAAAAAAAAAAAAAAAAAAAAAADVegAA1XoAH9V6AODVegD/z3IG/8FfFP+9Whj/vVoY/71a
+        GP+9Whj/wWAT/89zBP/YgAr/5pgx/e2kQP/upkH/7qhD/++qRf/wrUf/8a9K/+qnQf/SgxT/0XcA/9V5
+        AP/VeQD/1XkA4NV5AB/VeQAAAAAAAAAAAAAAAAAAAAAAANZ6AADWegAf1noA4NV6AP/WegD/z3IG/8Bf
+        Ff+9Whj/vVoY/8FgE//QcwX/1noA/9V5AP/Zgg+/66M/0e+oRP/vqkX/8K1H//CvSf/xsUv/8rVO/+ut
+        Rf/ThRb/0ncA/9Z6AP/WegDg1noAH9Z6AAAAAAAAAAAAAAAAAAAAAAAA1XoAANV6AB/VegDg1XkA/9V5
+        AP/WegD/z3IG/8BfFP/BYBP/0HMF/9V6AP/VeQD/1XkA/9V5AJXahhWW6J82//CtSP/wr0n/8bFL//K0
+        Tf/ytk//9LlS/+yxSf/Uhhf/1HgA/9V5AODVeQAf1XkAAAAAAAAAAAAAAAAAAAAAAADVeQAA1XkAH9V5
+        AODVeQD/1XkA/9V5AP/VegD/0XUD/9J1A//VeQD/1XkA/9V5AP/VeQD/1XkAldV4AJXYgQ3/6aM7//Gy
+        TP/ytE3/8rZP//O5Uf/0u1P/9b9X/+moPP/VegL/1XkA4NV5AB/VeQAAAAAAAAAAAAAAAAAAAAAAANV5
+        AADVeQAf1XkA4NV5AP/VeQD/1XkA/9V5AP/VegD/1XoA/9V5AP/VeQD/1XkA/9V5AP/VeQCV1XkAldV5
+        AP/Zgw7/6qc+//O3UP/zuVH/9LtT//W+Vv/xuE//3o8b/9V5AP/VeQDg1XkAH9V5AAAAAAAAAAAAAAAA
+        AAAAAAAA1XkAANV5AB/VeQDg1XkA/9V5AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5
+        AJXVeQCV1XkA/9V4AP/Zgw//66tB//S8VP/1vlb/8blP/96PHP/VeQD/1XkA/9V5AODVeQAf1XkAAAAA
+        AAAAAAAAAAAAAAAAAADVeQAA1XkAH9V5AODVeQD/1XkA/9V5AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5
+        AP/VeQD/1XkAldV5AJXVeQD/1XkA/9V4AP/ZhRD/7K9E//G4Tv/ekBz/1XkA/9V5AP/VeQD/1XkA4NV5
+        AB/VeQAAAAAAAAAAAAAAAAAAAAAAANV5AADVeQAf1XkA4NV5AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5
+        AP/VeQD/1XkA/9V5AP/VeQCV1XkAldV5AP/VeQD/1XkA/9V5AP/YgQv/2oUQ/9V5Af/VeQD/1XkA/9V5
+        AP/VeQDg1XkAH9V5AAAAAAAAAAAAAAAAAAAAAAAA1XkAANV5AB/VeQDg1XkA/9V5AP/VeQD/1XkA/9V5
+        AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5AJXVeQCV1XkA/9V5AP/VeQD/1XkA/9V4AP/UeAD/1XkA/9V5
+        AP/VeQD/1XkA/9V5AODVeQAf1XkAAAAAAAAAAAAAAAAAAAAAAADVeQAA1XkAH9V5AODVeQD/1XkA/9V5
+        AP/VeQD/1XkA/9V5AP/VeQD/1XkA/9V5AP/VeQD/1XkAldV5AJXVeQD/1XkA/9V5AP/VeQD/1XkA/9V5
+        AP/VeQD/1XkA/9V5AP/VeQD/1XkA4NV5AB/VeQAAAAAAAAAAAAAAAAAAAAAAANV5AADVeQAb1XkAxdV5
+        AOLVeQDg1XkA4NV5AODVeQDg1XkA4NV5AODVeQDg1XoA4NV6AOTVegCD1XkAg9V5AOTVeQDg1XkA4NV5
+        AODVeQDg1XkA4NV5AODVeQDg1XkA4NV5AOLVeQDF1XkAG9V5AAAAAAAAAAAAAAAAAAAAAAAA1XkAANV5
+        AATVeQAb1XkAH9V5AB/VeQAf1XkAH9V5AB/VeQAf1XkAH9V5AB/VeQAf1noAINZ6ABLWegAS1noAINZ6
+        AB/WegAf1XoAH9V5AB/VeQAf1XkAH9V5AB/VeQAf1XkAH9V5ABvVeQAE1XkAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA////////////////4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AA
+        AAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AA
+        AAfgAAAH4AAAB+AAAAf///////////////8=
+</value>
+  </data>
 </root>

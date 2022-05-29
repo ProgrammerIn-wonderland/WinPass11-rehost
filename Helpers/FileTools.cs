@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Net;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace WinPass11.Helpers
 {
@@ -7,7 +10,7 @@ namespace WinPass11.Helpers
     {
         public static bool IsLocked(FileInfo file)
         {
-            FileStream? stream = null;
+            FileStream stream = null;
 
             try
             {
@@ -38,7 +41,7 @@ namespace WinPass11.Helpers
                     File.Delete(path);
                 }
 
-                WebClient client = new();
+                WebClient client = new WebClient();
                 client.DownloadFile(replacement, path);
             }
             catch
@@ -47,9 +50,9 @@ namespace WinPass11.Helpers
             }
         }
 
-        public static void WaitForExist(string path, string? replacement)
+        public static void WaitForExist(string path, string replacement)
         {
-            FileInfo file = new(path);
+            FileInfo file = new FileInfo(path);
 
             int i = 0;
             while (!System.IO.File.Exists(path) && i < 30)

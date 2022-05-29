@@ -1,5 +1,10 @@
 using Microsoft.Win32;
+using System;
 using System.Diagnostics;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using WinPass11.Helpers;
 
 namespace WinPass11
@@ -51,7 +56,7 @@ namespace WinPass11
                 Application.Exit();
             };
 
-            string channel = cmbChannel.SelectedItem.ToString()!;
+            string channel = cmbChannel.SelectedItem.ToString();
 
             if (channel == "Release")
                 HandleRelease();
@@ -84,7 +89,7 @@ namespace WinPass11
                 progressBar.Value = 60;
                 progressBar.Style = ProgressBarStyle.Marquee;
 
-                string downloadDir = @$"{Path.GetPathRoot(Environment.SystemDirectory)}\$WINDOWS.~BT\Sources\AppraiserRes.dll";
+                string downloadDir = $"{Path.GetPathRoot(Environment.SystemDirectory)}\\$WINDOWS.~BT\\Sources\\AppraiserRes.dll";
 
                 Thread thread = new Thread(() => FileTools.WaitForExist(downloadDir, appraiserRes));
                 thread.Start();
