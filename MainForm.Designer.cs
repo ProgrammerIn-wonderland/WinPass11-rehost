@@ -62,7 +62,8 @@ namespace WinPass11
             // 
             // fileDialog
             // 
-            this.fileDialog.FileName = "fileDialog";
+            this.fileDialog.FileName = "Win11.iso";
+            this.fileDialog.Filter = "Windows 11 ISO (*.iso)|*.iso|All files (*.*)|*.*";
             // 
             // progressBar
             // 

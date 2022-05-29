@@ -20,7 +20,7 @@ namespace WinPass11
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
-        {
+        { // Create a temp directory for later use
             if (Directory.Exists(tempDir))
             {
                 Directory.Delete(tempDir, true);
@@ -29,7 +29,7 @@ namespace WinPass11
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        { // Remove the temp directory on exit
             if (Directory.Exists(tempDir))
             {
                 Directory.Delete(tempDir, true);
@@ -37,7 +37,7 @@ namespace WinPass11
         }
 
         private void cmbChannel_SelectionChangeComitted(object sender, EventArgs e)
-        {
+        { // Enable the install button once a channel is selected
             if (!string.IsNullOrEmpty(cmbChannel.SelectedItem.ToString()))
             {
                 btnInstall.Enabled = true;
@@ -102,11 +102,9 @@ namespace WinPass11
 
             }
         }
-        private async void HandleRelease() // release has a whole different mechanism than the insider builds
-        {
+        private async void HandleRelease()
+        { // Release handles upgrading differently from the other Insider branches
             MessageBox.Show("This option will require you to download an ISO file from https://www.microsoft.com/en-us/software-download/windows11", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            fileDialog.Filter = "Windows ISO (*.iso)|*.iso|All files (*.*)|*.*"; // get file
-
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 progressBar.Value = 30;
