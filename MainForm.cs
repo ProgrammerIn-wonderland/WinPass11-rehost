@@ -1,14 +1,14 @@
 using Microsoft.Win32;
 using System.Diagnostics;
 using WinPass11.Helpers;
-using static WinPass11.Helpers.Utils;
-using FileTools = WinPass11.Helpers.FileTools;
 
 namespace WinPass11
 {
     public partial class MainForm : Form
     {
         private readonly string tempDir = Path.Combine(Path.GetTempPath(), "WinPass11");
+
+        private readonly string appraiserRes = "https://github.com/ArkaneDev/files/raw/main/appraiserres.dll";
 
         public MainForm()
         {
@@ -54,74 +54,77 @@ namespace WinPass11
             string channel = cmbChannel.SelectedItem.ToString()!;
 
             if (channel == "Release")
-                release();
+                HandleRelease();
             else // Beta and Dev Channels
             {
-                Helpers.Registry.CreateKey(@"SOFTWARE\Microsoft\WindowsSelfHost\Applicability", new object[,]
+                RegTools.CreateKey(@"SOFTWARE\Microsoft\WindowsSelfHost\Applicability", new object[,]
                 {
-                { "BranchName", channel },
-                { "ContentType", "Mainline" },
-                { "Ring", "External" }
+                    { "BranchName", channel },
+                    { "ContentType", "Mainline" },
+                    { "Ring", "External" }
                 });
 
-                Helpers.Registry.CreateKey(@"SOFTWARE\Microsoft\WindowsSelfHost\UI\Selection", new object[,]
+                RegTools.CreateKey(@"SOFTWARE\Microsoft\WindowsSelfHost\UI\Selection", new object[,]
                 {
-                { "UIBranch", channel },
-                { "UIContentType", "Mainline" },
-                { "UIRing", "External" }
+                    { "UIBranch", channel },
+                    { "UIContentType", "Mainline" },
+                    { "UIRing", "External" }
                 });
 
-                Helpers.Registry.CreateKey(@"SYSTEM\Setup\LabConfig", new object[,]
+                RegTools.CreateKey(@"SYSTEM\Setup\LabConfig", new object[,]
                 {
-                { "BypassTPMCheck", 1, RegistryValueKind.DWord },
-                { "BypassSecureBootCheck", 1, RegistryValueKind.DWord }
+                    { "BypassTPMCheck", 1, RegistryValueKind.DWord },
+                    { "BypassSecureBootCheck", 1, RegistryValueKind.DWord }
                 });
+                progressBar.Value = 30;
 
                 Process process = Process.Start("UsoClient.exe", "StartInteractiveScan");
                 process.WaitForExit();
                 Debug.WriteLine($"'{process.StartInfo.FileName}' has exited with code {process.ExitCode}.");
+                progressBar.Value = 60;
+                progressBar.Style = ProgressBarStyle.Marquee;
 
                 string downloadDir = @$"{Path.GetPathRoot(Environment.SystemDirectory)}\$WINDOWS.~BT\Sources\AppraiserRes.dll";
-                string replacementUri = "https://github.com/ArkaneDev/files/raw/main/appraiserres.dll";
 
-                Thread thread = new Thread(() => FileTools.WaitForExist(downloadDir, replacementUri));
+                Thread thread = new Thread(() => FileTools.WaitForExist(downloadDir, appraiserRes));
                 thread.Start();
+                progressBar.Value = 90;
                 thread.Join();
+                progressBar.Style = ProgressBarStyle.Continuous;
+                progressBar.Value = 100;
 
                 MessageBox.Show("Tasks completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Application.Exit();
 
             }
         }
-        private async void release() // release has a whole different mechanism than the insider builds
+        private async void HandleRelease() // release has a whole different mechanism than the insider builds
         {
-            Utils.ShowMessageBox("This option will require you to download an ISO file from https://www.microsoft.com/en-us/software-download/windows11", MessageBoxType.Information);
-            openFileDialog1.Filter = "Windows ISO (*.iso)|*.iso|All files (*.*)|*.*"; // get file
+            MessageBox.Show("This option will require you to download an ISO file from https://www.microsoft.com/en-us/software-download/windows11", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            fileDialog.Filter = "Windows ISO (*.iso)|*.iso|All files (*.*)|*.*"; // get file
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                progressBar1.Value = 30;
-                await Task.Run(() => DiscTools.ExtractISO(openFileDialog1.FileName, $@"{tempDir}\ISO\")); // ISO extractor
+                progressBar.Value = 30;
+                await Task.Run(() => DiscTools.ExtractISO(fileDialog.FileName, $@"{tempDir}\ISO\")); // ISO extractor
 
-                string[] pathparser1 = openFileDialog1.FileName.Split('\\');
+                string[] pathparser1 = fileDialog.FileName.Split('\\');
                 string extractdir = tempDir + "\\ISO\\" + pathparser1[pathparser1.Length - 1].Remove(pathparser1[pathparser1.Length - 1].Length - 4, 4) + "\\"; // hellish filepath parsing
-                progressBar1.Value = 50;
-                File.Delete($"{extractdir}\\Sources\\appraiserres.dll"); // File Replacing
-                Utils.DownloadFile("https://github.com/ArkaneDev/files/raw/main/appraiserres.dll", $"{extractdir}\\Sources\\appraiserres.dll");
-                progressBar1.Style = ProgressBarStyle.Marquee;
-                Utils.ShowMessageBox("Continue Setup in Windows 11 Installer \r\n\r\nVERY IMPORTANT!\r\n\r\nPlease Click \"Change how setup downloads updates\" and click \"Not Now\"", MessageBoxType.Information);
-                
-                Utils.StartProcess($"{extractdir}\\Setup.exe", "");
 
-                progressBar1.Style = ProgressBarStyle.Continuous;
-                progressBar1.Value = 100;
+                progressBar.Value = 50;
+                FileTools.Replace(appraiserRes, $"{extractdir}\\Sources\\appraiserres.dll");
+
+                progressBar.Style = ProgressBarStyle.Marquee;
+                MessageBox.Show("Continue Setup in Windows 11 Installer.\r\n\r\nIMPORTANT!\r\n\r\nPlease Click \"Change how Setup downloads updates\", then select \"Not Now\".", "Important", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Process process = Process.Start($"{extractdir}\\Setup.exe", "");
+                process.WaitForExit();
+                Debug.WriteLine($"'{process.StartInfo.FileName}' has exited with code {process.ExitCode}.");
+
+                progressBar.Style = ProgressBarStyle.Continuous;
+                progressBar.Value = 100;
 
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

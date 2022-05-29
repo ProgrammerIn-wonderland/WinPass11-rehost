@@ -33,6 +33,11 @@ namespace WinPass11.Helpers
         {
             try
             {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+
                 WebClient client = new();
                 client.DownloadFile(replacement, path);
             }
@@ -47,16 +52,16 @@ namespace WinPass11.Helpers
             FileInfo file = new(path);
 
             int i = 0;
-            while (!System.IO.File.Exists(path) && i < 60)
+            while (!System.IO.File.Exists(path) && i < 30)
             {
-                if (i == 60)
+                if (i == 30)
                 {
                     MessageBox.Show($"The application has timed out.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }
 
                 Debug.WriteLine($"Sleeping, file not yet found: {path}");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 i++;
             }
             Thread.Sleep(5000);
@@ -67,18 +72,6 @@ namespace WinPass11.Helpers
                 foreach (Process process in processes)
                 {
                     process.Kill();
-                }
-            }
-
-            if (System.IO.File.Exists(path))
-            {
-                try
-                {
-                    System.IO.File.Delete(path);
-                }
-                catch
-                {
-                    Debug.WriteLine($"Failed to delete file: {path}");
                 }
             }
 

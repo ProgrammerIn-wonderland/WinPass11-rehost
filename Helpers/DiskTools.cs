@@ -56,11 +56,11 @@ namespace WinPass11.Helpers
                     Directory.CreateDirectory(path);
                 }
             }
-            catch (DirectoryNotFoundException Ex)
+            catch (DirectoryNotFoundException DirEx)
             {
                 AppendDirectory(Path.GetDirectoryName(path));
             }
-            catch (PathTooLongException Exx)
+            catch (PathTooLongException PathEx)
             {
                 AppendDirectory(Path.GetDirectoryName(path));
             }
