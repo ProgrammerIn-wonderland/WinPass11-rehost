@@ -11,9 +11,8 @@ namespace WinPass11
 {
     public partial class MainForm : Form
     {
-        private readonly string tempDir = Path.Combine(Path.GetTempPath(), "WinPass11");
-
         private readonly string appraiserRes = "https://github.com/ArkaneDev/files/raw/main/appraiserres.dll";
+        private readonly string tempDir = Path.Combine(Path.GetTempPath(), "WinPass11");
 
         public MainForm()
         {
