@@ -128,13 +128,7 @@ namespace WinPass11
 
                 progressBar.Style = ProgressBarStyle.Continuous;
                 progressBar.Value = 100;
-
             }
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
