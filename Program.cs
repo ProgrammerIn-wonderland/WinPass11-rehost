@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinPass11;
 
-namespace WindowsFormsApp1
+namespace WinPass11
 {
     internal static class Program
     {

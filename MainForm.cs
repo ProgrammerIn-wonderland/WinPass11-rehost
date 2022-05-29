@@ -131,5 +131,10 @@ namespace WinPass11
 
             }
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
