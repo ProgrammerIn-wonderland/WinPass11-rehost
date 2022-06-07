@@ -2,6 +2,7 @@ using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -104,28 +105,51 @@ namespace WinPass11
         }
         private async void HandleRelease()
         { // Release handles upgrading differently from the other Insider branches
-            MessageBox.Show("This option will require you to download an ISO file from https://www.microsoft.com/en-us/software-download/windows11", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            string filename = "";
+            
+            if (MessageBox.Show("Do you have an ISO image of Windows 11?\r\n(Selecting no will download a 5.2GB file)", "WinPass11", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+                progressBar.Value = 30;
+                //await Task.Run(() => FileTools.Download("https://tb.rg-adguard.net/dl.php?go=b1fb62af", $"{tempDir}\\Windows11.iso")); // Downloads Windows ISO
+
+                WebClient webClient = new WebClient(); // though less than ideal, we have to reprogram the download portion, as the current one doesn't provide progress
+                webClient.DownloadProgressChanged += (s, e) =>
+                {
+                    float scaled = (e.ProgressPercentage * (0.333f)) + 30;
+                    progressBar.Value = (int) scaled;
+                };
+                await webClient.DownloadFileTaskAsync(new Uri("https://tb.rg-adguard.net/dl.php?go=b1fb62af"), // Thank you adguard :)
+                    $"{tempDir}\\Windows11.iso");
+                filename = $"{tempDir}\\Windows11.iso";
+
+            } else
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                progressBar.Value = 30;
-                await Task.Run(() => DiscTools.ExtractISO(fileDialog.FileName, $@"{tempDir}\ISO\")); // ISO extractor
+                filename = fileDialog.FileName;
 
-                string[] pathparser1 = fileDialog.FileName.Split('\\');
-                string extractdir = tempDir + "\\ISO\\" + pathparser1[pathparser1.Length - 1].Remove(pathparser1[pathparser1.Length - 1].Length - 4, 4) + "\\"; // hellish filepath parsing
-
-                progressBar.Value = 50;
-                FileTools.Replace(appraiserRes, $"{extractdir}\\Sources\\appraiserres.dll");
-
-                progressBar.Style = ProgressBarStyle.Marquee;
-                MessageBox.Show("Continue Setup in Windows 11 Installer.\r\n\r\nIMPORTANT!\r\n\r\nPlease Click \"Change how Setup downloads updates\", then select \"Not Now\".", "Important", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Process process = Process.Start($"{extractdir}\\Setup.exe", "");
-                process.WaitForExit();
-                Debug.WriteLine($"'{process.StartInfo.FileName}' has exited with code {process.ExitCode}.");
-
-                progressBar.Style = ProgressBarStyle.Continuous;
-                progressBar.Value = 100;
+            } else
+            {
+                MessageBox.Show("No file provided, exiting WinPass11");
+                Application.Exit();
             }
+            progressBar.Value = 65;
+            await Task.Run(() => DiscTools.ExtractISO(filename, $@"{tempDir}\ISO\")); // ISO extractor
+
+            string[] pathparser1 = filename.Split('\\');
+            string extractdir = tempDir + "\\ISO\\" + pathparser1[pathparser1.Length - 1].Remove(pathparser1[pathparser1.Length - 1].Length - 4, 4) + "\\"; // hellish filepath parsing
+
+            progressBar.Value = 70;
+            FileTools.Download(appraiserRes, $"{extractdir}\\Sources\\appraiserres.dll");
+
+            progressBar.Style = ProgressBarStyle.Marquee;
+            MessageBox.Show("Continue Setup in Windows 11 Installer.\r\n\r\nIMPORTANT!\r\n\r\nPlease Click \"Change how Setup downloads updates\", then select \"Not Now\".", "Important", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Process process = Process.Start($"{extractdir}\\Setup.exe", "");
+            process.WaitForExit();
+            Debug.WriteLine($"'{process.StartInfo.FileName}' has exited with code {process.ExitCode}.");
+
+            progressBar.Style = ProgressBarStyle.Continuous;
+            progressBar.Value = 100;
         }
     }
 }

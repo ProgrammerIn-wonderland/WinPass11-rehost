@@ -32,7 +32,7 @@ namespace WinPass11.Helpers
             return false;
         }
 
-        public static void Replace(string replacement, string path)
+        public static void Download(string replacement, string path)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace WinPass11.Helpers
 
             if (!string.IsNullOrEmpty(replacement))
             {
-                Replace(replacement, path);
+                Download(replacement, path);
             }
         }
     }
