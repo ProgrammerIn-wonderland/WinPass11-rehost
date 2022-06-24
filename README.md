@@ -1,7 +1,7 @@
 ﻿## WinPass11
 
 ### The Grand Re-opening?
-*NOTE: You need to be in the Windows Insider Release Preview channel **BEFORE** using WinPass. WinPass does not enroll you in insiders, it changes your channel while bypassing restrictions.*
+*NOTE: If you plan to use insiders, you need to be in the Windows Insider Release Preview channel **BEFORE** using WinPass. WinPass does not enroll you in insiders, it changes your channel while bypassing restrictions.*
 
 🪟 [WinPass11](https://github.com/ArkaneDev/WinPass11) is a tool for installing Windows 11 on unsupported hardware in a one click installer. Run a single executable and have access to Windows 11 through Insider Preview branches without having to worry about incompatibility.
 
